@@ -1,5 +1,40 @@
 import math
 
+frac = 0
+frac_list = []
+x_list = []
+y_list = []
+low = 2
+hi = 10
+N = 10
+total = 0
+
+def f(x):
+    return 2*x
+
+for i in range(0,N):
+    frac_list.append(frac)
+    frac += 1/N
+
+
+for frac in frac_list:
+    x_list.append(low+frac*(hi-low))
+
+print(x_list)
+
+for x in x_list:
+    y_list.append(f(x))
+
+x_diff = x_list[1] - x_list[0]
+
+for y in y_list:
+    total += x_diff*y
+
+print(total)
+
+
+
+
 def dbl(x):
   """ input: a number x (int or float)
     output: twice the input
@@ -15,7 +50,7 @@ def unitfracs(N):
 
     return frac_list
 
-print(unitfracs(4))
+#print(unitfracs(4))
 
 def scaledfracs(low,hi,N):
     scaled_list = []
@@ -24,7 +59,7 @@ def scaledfracs(low,hi,N):
         scaled_list.append(low+frac*(hi-low))
     return scaled_list
 
-print(scaledfracs(10, 30, 5 ))
+#print(scaledfracs(10, 30, 5 ))
 
 def sqfracs(low,hi,N):
     sqfracs_list = []
@@ -34,7 +69,7 @@ def sqfracs(low,hi,N):
 
     return sqfracs_list
 
-print(sqfracs(4,10,6))
+#print(sqfracs(4,10,6))
 
 def f_of_fracs(f,low,hi,N):
     y_list = []
@@ -44,7 +79,7 @@ def f_of_fracs(f,low,hi,N):
 
     return y_list
 
-print(f_of_fracs(math.sin, 0, math.pi, 4))
+#print(f_of_fracs(math.sin, 0, math.pi, 4))
 
 def integrate(f,low,hi,N):
     total = 0
@@ -56,4 +91,4 @@ def integrate(f,low,hi,N):
 
     return total
 
-print(integrate(math.sin, 0, math.pi, 1000))
+#print(integrate(math.sin, 0, math.pi, 1000))
