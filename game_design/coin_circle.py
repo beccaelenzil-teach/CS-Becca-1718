@@ -10,7 +10,8 @@ import random
 import arcade
 import math
 
-SPRITE_SCALING = 0.5
+SPRITE_SCALING = 0.35
+PLAYER_SCALING = 0.5
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -74,7 +75,7 @@ class MyAppWindow(arcade.Window):
         self.score = 0
         # Character image from kenney.nl
         self.player_sprite = arcade.Sprite("character.png",
-                                           SPRITE_SCALING)
+                                           PLAYER_SCALING)
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 70
         self.all_sprites_list.append(self.player_sprite)
@@ -83,7 +84,7 @@ class MyAppWindow(arcade.Window):
 
             # Create the coin instance
             # Coin image from kenney.nl
-            coin = Coin("coin_01.png", SPRITE_SCALING / 3)
+            coin = Coin("plus.png", SPRITE_SCALING / 3)
 
             # Position the center of the circle the coin will orbit
             coin.circle_center_x = random.randrange(SCREEN_WIDTH)

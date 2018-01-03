@@ -1,24 +1,21 @@
 import math
 
-frac = 0
+x_frac = 0
 frac_list = []
 x_list = []
 y_list = []
 low = 2
 hi = 10
 N = 10
-total = 0
+area = 0
+x = low
 
 def f(x):
     return 2*x
 
-for i in range(0,N):
-    frac_list.append(frac)
-    frac += 1/N
-
-
-for frac in frac_list:
-    x_list.append(low+frac*(hi-low))
+for i in range(N):
+    x += (1/N)*(hi-low)
+    x_list.append(x)
 
 print(x_list)
 
@@ -28,9 +25,9 @@ for x in x_list:
 x_diff = x_list[1] - x_list[0]
 
 for y in y_list:
-    total += x_diff*y
+    area += x_diff*y
 
-print(total)
+print(area)
 
 
 
