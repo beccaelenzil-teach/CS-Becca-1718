@@ -3,9 +3,9 @@ import p4_2_game_of_life as life
 
 
 def constants():
-    width = 60
-    height = 60
-    cell_size = 12
+    width = 100
+    height = 100
+    cell_size = 8
     spacing = 1
     return [width,height,cell_size, spacing]
 

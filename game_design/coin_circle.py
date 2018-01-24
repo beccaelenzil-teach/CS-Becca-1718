@@ -9,8 +9,9 @@ Artwork from http://kenney.nl
 import random
 import arcade
 import math
+import pyglet
 
-SPRITE_SCALING = 0.35
+SPRITE_SCALING = 0.15
 PLAYER_SCALING = 0.5
 
 SCREEN_WIDTH = 800
@@ -64,8 +65,17 @@ class MyAppWindow(arcade.Window):
         self.score = 0
         self.player_sprite = None
 
+
+
+
+
+
     def start_new_game(self):
         """ Set up the game and initialize the variables. """
+        self.sound = pyglet.resource.media('beep-02.wav', streaming=False)
+
+        music = pyglet.resource.media('fever.mp3', streaming=False)
+        music.play()
 
         # Sprite lists
         self.all_sprites_list = arcade.SpriteList()
@@ -84,7 +94,7 @@ class MyAppWindow(arcade.Window):
 
             # Create the coin instance
             # Coin image from kenney.nl
-            coin = Coin("plus.png", SPRITE_SCALING / 3)
+            coin = Coin("coin.png", SPRITE_SCALING / 3)
 
             # Position the center of the circle the coin will orbit
             coin.circle_center_x = random.randrange(SCREEN_WIDTH)
@@ -111,6 +121,7 @@ class MyAppWindow(arcade.Window):
         # This command has to happen before we start drawing
         arcade.start_render()
 
+
         # Draw all the sprites.
         self.all_sprites_list.draw()
 
@@ -136,13 +147,20 @@ class MyAppWindow(arcade.Window):
         # Loop through each colliding sprite, remove it, and add to the score.
         for coin in hit_list:
             self.score += 1
+            self.sound.play()
             coin.kill()
+
+
+
+
 
 
 def main():
     window = MyAppWindow(SCREEN_WIDTH, SCREEN_HEIGHT)
     window.start_new_game()
     arcade.run()
+    #music
+
 
 
 if __name__ == "__main__":
