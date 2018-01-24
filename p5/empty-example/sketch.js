@@ -8,7 +8,7 @@ function setup() {
   createCanvas(w,h)
   background(0)
   for(i=0; i<n; i++){
-  	circ = new circle(random(0,w+1),random(0,h+1),random(9,12),random([0,1]),random([-10,-5,5,10]),random(-4,4))
+  	circ = new circle(random(0,w+1),random(0,h+1),random(9,12),random([0,1]),random([-4,-2,2,4]),random([-4,-2,2,4]))
   	circle_list.push(circ)
   }
 
@@ -20,7 +20,7 @@ function draw() {
   	background(0)
   	circle_list = []
   	for(i=0; i<n; i++){
-  		circ = new circle(random(0,w+1),random(0,h+1),random(9,12),random([0,1]),random(-4,4),random(-4,4))
+  		circ = new circle(random(0,w+1),random(0,h+1),random(9,12),random([0,1]),random([-4,-2,2,4]),random([-4,-2,2,4]))
   		circle_list.push(circ)
   	}
   }
@@ -62,10 +62,10 @@ function circle(x,y,d,a,speed_x,speed_y){
 	}
 
 	this.move = function(){
-		//this.x += random(-this.speed, this.speed);
-    	//this.y += random(-this.speed, this.speed);
-    	this.x += this.speed_x
-    	this.y += this.speed_y
+		  this.x += random(-this.speed_x, this.speed_x);
+    	this.y += random(-this.speed_y, this.speed_y);
+    	//this.x += this.speed_x
+    	//this.y += this.speed_y
 	}
 
 	this.display = function() {
