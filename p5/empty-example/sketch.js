@@ -3,12 +3,14 @@ n = 200
 h = 700
 w = 1000
 m = 0
-dt = 400
+dt = 200
+
 
 function setup() {
   createCanvas(w,h)
   background(0)
   fill(random(0,256))
+  cursor_color = [random(0,256),random(0,256),random(0,256)]
   for(i=0; i<n; i++){
   	circ = new circle(random(0,w+1),random(0,h+1),random(9,12),[random(0,256),random(0,256),random(0,256)])//random([-4,-2,2,4]),random([-4,-2,2,4]))
   	circle_list.push(circ)
@@ -23,11 +25,13 @@ function draw() {
   if (mouseIsPressed){
   	clear()
   	background(0)
+    cursor_color = [random(0,256),random(0,256),random(0,256)]
   	circle_list = []
   	for(i=0; i<n; i++){
   		circ = new circle(random(0,w+1),random(0,h+1),random(9,12),[random(0,256),random(0,256),random(0,256)])//,random([-4,-2,2,4]),random([-4,-2,2,4]))
   		circle_list.push(circ)
   	}
+
   }
 
  
@@ -60,7 +64,7 @@ function draw() {
 
       }
       
-      
+
   		/*if (circle_list[i].x > w || circle_list[i].x < 0){
   			circle_list[i].change_x()
   		}
@@ -69,6 +73,7 @@ function draw() {
   		}
       */
   }
+<<<<<<< HEAD
 
   /*d = random(15,25)
   //fill(random(0,256),random(0,256),random(0,256))
@@ -76,6 +81,15 @@ function draw() {
   //ellipse(mouseX,mouseY,d,d)
   ellipse(mouseX,mouseY,30,30)
   */
+=======
+  noCursor()
+  d = random(15,25)
+  fill(cursor_color)
+  //fill(100,100,100)
+  //ellipse(mouseX,mouseY,d,d)
+  ellipse(mouseX,mouseY,30,30)
+  
+>>>>>>> e311b22309758e3978fa8d80c3989b9a4bc41819
   	
 
   m+=1
