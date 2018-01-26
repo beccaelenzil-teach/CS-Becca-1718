@@ -20,7 +20,7 @@ function setup() {
 
 function draw() {
 
-  background(0)
+  background(0,0,0,100)
 
   if (mouseIsPressed){
   	clear()
@@ -41,20 +41,27 @@ function draw() {
 
       dist = sqrt(Math.pow((mouseX-circle_list[i].x),2) + Math.pow((mouseY-circle_list[i].y),2))
       if (dist < dt){
-        circle_list[i].move()
-
+        
+        
         if (circle_list[i].x > mouseX){
-          circle_list[i].speed_x = random(dt-10,dt+10)*1/dist
+          circle_list[i].speed_x = random(dt-1,dt+1)*1/dist
         }
         else{
-          circle_list[i].speed_x = -random(dt-10,dt+10)*1/dist
+          circle_list[i].speed_x = -random(dt-1,dt+1)*1/dist
         }
         if (circle_list[i].y > mouseY){
-          circle_list[i].speed_y = random(dt-10,dt+10)*1/dist
+          circle_list[i].speed_y = random(dt-1,dt+1)*1/dist
         }
         else{
-          circle_list[i].speed_y = -random(dt-10,dt+10)*1/dist
+          circle_list[i].speed_y = -random(dt-1,dt+1)*1/dist
         }
+        
+
+        //circle_list[i].speed_y = mouseY-circle_list[i].y*1/dist/2
+        //circle_list[i].speed_x = mouseX-circle_list[i].x*1/dist/2
+
+        circle_list[i].move()
+
       }
       
 
@@ -66,6 +73,15 @@ function draw() {
   		}
       */
   }
+<<<<<<< HEAD
+
+  /*d = random(15,25)
+  //fill(random(0,256),random(0,256),random(0,256))
+  fill(100,100,100)
+  //ellipse(mouseX,mouseY,d,d)
+  ellipse(mouseX,mouseY,30,30)
+  */
+=======
   noCursor()
   d = random(15,25)
   fill(cursor_color)
@@ -73,6 +89,7 @@ function draw() {
   //ellipse(mouseX,mouseY,d,d)
   ellipse(mouseX,mouseY,30,30)
   
+>>>>>>> e311b22309758e3978fa8d80c3989b9a4bc41819
   	
 
   m+=1
