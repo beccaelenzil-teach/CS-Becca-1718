@@ -3,7 +3,8 @@ n = 200
 h = 700
 w = 1000
 m = 0
-dt = 200
+mult = 50000
+
 
 
 function setup() {
@@ -20,11 +21,11 @@ function setup() {
 
 function draw() {
 
-  background(0,0,0,100)
+  background(0,0,0,50)
 
-  if (mouseIsPressed){
+  if(mouseIsPressed) {
   	clear()
-  	background(0)
+  	background([random(0,256),random(0,256),random(0,256)])
     cursor_color = [random(0,256),random(0,256),random(0,256)]
   	circle_list = []
   	for(i=0; i<n; i++){
@@ -40,20 +41,20 @@ function draw() {
       circle_list[i].display()
 
       dist = sqrt(Math.pow((mouseX-circle_list[i].x),2) + Math.pow((mouseY-circle_list[i].y),2))
-      if (dist < dt){
+      
         
         
         if (circle_list[i].x > mouseX){
-          circle_list[i].speed_x = random(dt-1,dt+1)*1/dist
+          circle_list[i].speed_x = mult*1/(dist*dist)
         }
         else{
-          circle_list[i].speed_x = -random(dt-1,dt+1)*1/dist
+          circle_list[i].speed_x = -mult*1/(dist*dist)
         }
         if (circle_list[i].y > mouseY){
-          circle_list[i].speed_y = random(dt-1,dt+1)*1/dist
+          circle_list[i].speed_y = mult*1/(dist*dist)
         }
         else{
-          circle_list[i].speed_y = -random(dt-1,dt+1)*1/dist
+          circle_list[i].speed_y = -mult*1/(dist*dist)
         }
         
 
@@ -62,7 +63,7 @@ function draw() {
 
         circle_list[i].move()
 
-      }
+      
       
 
   		/*if (circle_list[i].x > w || circle_list[i].x < 0){
@@ -73,7 +74,7 @@ function draw() {
   		}
       */
   }
-<<<<<<< HEAD
+
 
   /*d = random(15,25)
   //fill(random(0,256),random(0,256),random(0,256))
@@ -81,7 +82,7 @@ function draw() {
   //ellipse(mouseX,mouseY,d,d)
   ellipse(mouseX,mouseY,30,30)
   */
-=======
+
   noCursor()
   d = random(15,25)
   fill(cursor_color)
@@ -89,7 +90,7 @@ function draw() {
   //ellipse(mouseX,mouseY,d,d)
   ellipse(mouseX,mouseY,30,30)
   
->>>>>>> e311b22309758e3978fa8d80c3989b9a4bc41819
+
   	
 
   m+=1
@@ -123,6 +124,7 @@ function circle(x,y,d,fill_color){
 		ellipse(this.x, this.y, this.d, this.d)
     //fill(random(0,256),random(0,256),random(0,256))
     fill(fill_color)
+    noStroke()
   }
-
 }
+
