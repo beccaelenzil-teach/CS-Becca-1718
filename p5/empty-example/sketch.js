@@ -1,10 +1,14 @@
 circle_list = []
-n = 200
+n = 500
 h = 700
 w = 1000
 m = 0
+<<<<<<< HEAD
 mult = 50000
 
+=======
+dt = 400
+>>>>>>> bec99607c48662a551ac70d58246df2c2b76bcd7
 
 
 function setup() {
