@@ -6,8 +6,10 @@ var cell_num_previous = 20.0
 var num_populations = 4
 var num_populations_previous = 4
 var percent_pops = []
+var percent_pops_previous = []
 var run
 var reset
+var reset_percent
 var initialize_board = 1
 
 function Cell(row,col,type){
@@ -60,9 +62,6 @@ function createModelBoard(percent_pops, cell_num){
   return new_population
  };
 
-population = createModelBoard([10, 20, 20, 30, 30], 10)
-console.log(population)
-
 function populateBoard(cell_num, percent_pops){
   population = createModelBoard(percent_pops, cell_num)
   A = createBoard(cell_num)
@@ -89,7 +88,7 @@ function drawBoard(A,cell_size,num_populations){
       for (pop = 0; pop < num_populations+1; pop++){
         if (A[row][col].type == pop && A[row][col].type != 0){
           R = (pop+1)*(255/num_populations)
-          G = 0
+          G = 20*i
           B = (num_populations - pop)*(255/num_populations)
           fill(R,G,B)
         }
@@ -100,6 +99,7 @@ function drawBoard(A,cell_size,num_populations){
       rect(x_pos,y_pos,cell_size,cell_size)
     }
   }
+  return color
 }
 
 
@@ -110,9 +110,7 @@ function setup() {
 
   // inputs
   percent_input = []
-  for (i = 0; i<11; i++){
-    percent_input[i] = createInput(percent_pops[i], Number)
-  }
+  reset_percent = []
 
   // sliders
   slider_cell_num = createSlider(4.0, 75.0, 20.0, 1.0);
@@ -133,15 +131,17 @@ function setup() {
   cell_size = calculate_cell_size(board_size,cell_num)
   A = populateBoard(cell_num, percent_pops)
 
-
+  /*
+  percent_input = []
   percent_sum = 0
-  for (i = 0; i<num_populations+1; i++){
+  for (i = 0; i<11; i++){
+    percent_input[i] = createSlider(0,100-percent_sum,0,1)
     percent_input[i].position(board_size+50, 110+(i+1)*40);
-    percent_input[i].style('width', '50px')
+    percent_input[i].style('width', '100px')
     percent_sum += percent_input[i]
     percent_pops[i] = percent_input[i].value()
     R = (i+1)*(255/num_populations)
-    G = 0
+    G = 20*i
     B = (num_populations - i)*(255/num_populations)
     if (i == 0){
       fill(255)
@@ -151,7 +151,8 @@ function setup() {
     }
     rect(board_size+20, 110+(i+1)*40,20,20)
   }
-} 
+}*/
+}
 
 function draw(){
   
@@ -160,31 +161,38 @@ function draw(){
   num_populations = slider_num_pops.value()
   cell_num = slider_cell_num.value()
 
-  if(num_populations/num_populations_previous != 1){
-    percent_sum = 0
-    for (i = 0; i<num_populations+1; i++){
-      percent_input[i].position(board_size+50, 110+(i+1)*40);
-      percent_input[i].style('width', '50px')
-      percent_sum += percent_input[i]
-      percent_pops[i] = percent_input[i].value()
+  
+  percent_sum = 0
+  percent_input = []
+  
+  for (i = 0; i<num_populations+1; i++){
+    percent_input[i] = createSlider(0,100-percent_sum,0,1)
+    percent_input[i].position(board_size+50, 110+(i+1)*40);
+    percent_input[i].style('width', '100px')
+
+
+    percent_sum = percent_sum + float(percent_input[i])
+    percent_pops[i] = float(percent_input[i].value())
+
+    //reset_percent[i].position(board_size+110, 110+(i+1)*40);
+      
+    R = (i+1)*(255/num_populations)
+    G = 20*i
+    B = (num_populations - i)*(255/num_populations)
+    if (i == 0){
+      fill(255)
     }
-    cell_size = calculate_cell_size(board_size,cell_num)
-    A = populateBoard(cell_num, percent_pops)
+    else{
+      fill(R,G,B)
+    }
+    rect(board_size+20, 110+(i+1)*40,20,20)
+    text(str(0), board_size+50, 110+(i+1)*40);
+    text(str(100-percent_sum), board_size+150, 110+(i+1)*40);
   }
-  console.log(percent_pops)
 
   for (i = 0; i<num_populations+1; i++){
-      R = (i+1)*(255/num_populations)
-      G = 0
-      B = (num_populations - i)*(255/num_populations)
-      if (i == 0){
-        fill(255)
-      }
-      else{
-        fill(R,G,B)
-      }
-      rect(board_size+20, 110+(i+1)*40,20,20)
-    }
+      
+  }
 
   if (cell_num/cell_num_previous != 1 || num_populations/num_populations_previous != 1){
     cell_size = calculate_cell_size(board_size,cell_num)
@@ -195,6 +203,7 @@ function draw(){
 
   cell_num_previous = cell_num
   num_populations_previous = num_populations
+  percent_pops_previous = percent_pops
 
 }
 
