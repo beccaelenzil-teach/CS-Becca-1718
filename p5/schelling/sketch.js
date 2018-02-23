@@ -112,6 +112,10 @@ function setup() {
   percent_input = []
   reset_percent = []
 
+  for (i = 0; i<11; i++){
+    percent_input[i] = createInput(10)
+  }
+
   // sliders
   slider_cell_num = createSlider(4.0, 75.0, 20.0, 1.0);
   slider_cell_num.position(board_size+10, 50);
@@ -131,27 +135,6 @@ function setup() {
   cell_size = calculate_cell_size(board_size,cell_num)
   A = populateBoard(cell_num, percent_pops)
 
-  /*
-  percent_input = []
-  percent_sum = 0
-  for (i = 0; i<11; i++){
-    percent_input[i] = createSlider(0,100-percent_sum,0,1)
-    percent_input[i].position(board_size+50, 110+(i+1)*40);
-    percent_input[i].style('width', '100px')
-    percent_sum += percent_input[i]
-    percent_pops[i] = percent_input[i].value()
-    R = (i+1)*(255/num_populations)
-    G = 20*i
-    B = (num_populations - i)*(255/num_populations)
-    if (i == 0){
-      fill(255)
-    }
-    else{
-      fill(R,G,B)
-    }
-    rect(board_size+20, 110+(i+1)*40,20,20)
-  }
-}*/
 }
 
 function draw(){
@@ -163,10 +146,8 @@ function draw(){
 
   
   percent_sum = 0
-  percent_input = []
   
   for (i = 0; i<num_populations+1; i++){
-    percent_input[i] = createSlider(0,100-percent_sum,0,1)
     percent_input[i].position(board_size+50, 110+(i+1)*40);
     percent_input[i].style('width', '100px')
 
@@ -187,6 +168,7 @@ function draw(){
     }
     rect(board_size+20, 110+(i+1)*40,20,20)
     text(str(0), board_size+50, 110+(i+1)*40);
+    text(percent_input[i].value(), board_size+100, 110+(i+1)*40);
     text(str(100-percent_sum), board_size+150, 110+(i+1)*40);
   }
 
