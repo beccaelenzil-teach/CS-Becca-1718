@@ -58,6 +58,7 @@ function createModelBoard(percent_pops, cell_num){
       population.push(k)
     }
   }
+  population = population.slice(0,size)
   var new_population = shuffle(population)
   return new_population
  };
@@ -152,7 +153,7 @@ function draw(){
     percent_input[i].style('width', '100px')
 
 
-    percent_sum = percent_sum + float(percent_input[i])
+    percent_sum = percent_sum + float(percent_input[i].value())
     percent_pops[i] = float(percent_input[i].value())
 
     //reset_percent[i].position(board_size+110, 110+(i+1)*40);
@@ -166,10 +167,10 @@ function draw(){
     else{
       fill(R,G,B)
     }
-    rect(board_size+20, 110+(i+1)*40,20,20)
-    text(str(0), board_size+50, 110+(i+1)*40);
-    text(percent_input[i].value(), board_size+100, 110+(i+1)*40);
-    text(str(100-percent_sum), board_size+150, 110+(i+1)*40);
+    rect(board_size+20, 108+(i+1)*40,20,20)
+    text(str(0), board_size+50, 108+(i+1)*40);
+    text(percent_input[i].value(), board_size+100, 108+(i+1)*40);
+    text(str(100-percent_sum), board_size+150, 108+(i+1)*40);
   }
 
   for (i = 0; i<num_populations+1; i++){
