@@ -9,7 +9,6 @@ var percent_pops = []
 var run
 var reset
 var initialize_board = 1
-var A
 
 function Cell(row,col,type){
   this.row = row
@@ -57,19 +56,11 @@ function createModelBoard(percent_pops, cell_num){
       population.push(k)
     }
   }
-
-  //population = population.slice(0,size)
-
-  //var new_population = shuffle(population)
-  var new_population = population
-  console.log("population",population)
+  var new_population = shuffle(population)
   return new_population
- }
+ };
 
- //population = createModelBoard([10,50,50],10)
- //console.log(population)
-
-
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 function populateBoard(percent_pops, cell_num){
@@ -79,13 +70,15 @@ console.log(population)
 
 function populateBoard(cell_num, percent_pops){
 >>>>>>> parent of 68232e2... schelling
+=======
+function populateBoard(cell_num, percent_pops){
+>>>>>>> parent of d3ffb1a... broken
   population = createModelBoard(percent_pops, cell_num)
   A = createBoard(cell_num)
   i = 0
   for (row = 0; row < cell_num; row++){
     for (col = 0; col < cell_num; col++){
       A[row][col].type = population[i]
-      console.log(A[row][col].type)
       i++
     }
   }
@@ -150,10 +143,30 @@ function setup() {
   A = populateBoard(cell_num, percent_pops)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  /*
+  percent_input = []
+  percent_sum = 0
+>>>>>>> parent of d3ffb1a... broken
   for (i = 0; i<11; i++){
-    //percent_input[i] = createSlider(0,100,10,1)
-    percent_input[i] = createInput(10)
+    percent_input[i] = createSlider(0,100-percent_sum,0,1)
+    percent_input[i].position(board_size+50, 110+(i+1)*40);
+    percent_input[i].style('width', '100px')
+    percent_sum += percent_input[i]
+    percent_pops[i] = percent_input[i].value()
+    R = (i+1)*(255/num_populations)
+    G = 20*i
+    B = (num_populations - i)*(255/num_populations)
+    if (i == 0){
+      fill(255)
+    }
+    else{
+      fill(R,G,B)
+    }
+    rect(board_size+20, 110+(i+1)*40,20,20)
   }
+}*/
 }
 =======
 
@@ -181,22 +194,27 @@ function draw(){
   
   background(0);
 
-
-
   num_populations = slider_num_pops.value()
-  cell_num = slider_cell_num.value(10)
+  cell_num = slider_cell_num.value()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  
+>>>>>>> parent of d3ffb1a... broken
   percent_sum = 0
+  percent_input = []
+  
   for (i = 0; i<num_populations+1; i++){
+    percent_input[i] = createSlider(0,100-percent_sum,0,1)
     percent_input[i].position(board_size+50, 110+(i+1)*40);
-    percent_input[i].style('width', '80px')
-    if (i>0){
-      percent_sum = percent_sum + float(percent_input[i].value())
-    }
-    percent_input[i].max = percent_sum
+    percent_input[i].style('width', '100px')
+
+
+    percent_sum = percent_sum + float(percent_input[i])
     percent_pops[i] = float(percent_input[i].value())
-    
+
+    //reset_percent[i].position(board_size+110, 110+(i+1)*40);
       
     R = (i+1)*(255/num_populations)
     G = 20*i
@@ -207,6 +225,7 @@ function draw(){
     else{
       fill(R,G,B)
     }
+<<<<<<< HEAD
     rect(board_size+20, 108+(i+1)*40,20,20)
     text(str(0), board_size+50, 108+(i+1)*40);
     text(str(100-percent_sum), board_size+150, 108+(i+1)*40);
@@ -223,6 +242,11 @@ function draw(){
     cell_size = calculate_cell_size(board_size,cell_num)
     A = populateBoard(cell_num, percent_pops)
 >>>>>>> parent of 68232e2... schelling
+=======
+    rect(board_size+20, 110+(i+1)*40,20,20)
+    text(str(0), board_size+50, 110+(i+1)*40);
+    text(str(100-percent_sum), board_size+150, 110+(i+1)*40);
+>>>>>>> parent of d3ffb1a... broken
   }
   console.log(percent_pops)
 
@@ -241,14 +265,11 @@ function draw(){
 
   if (cell_num/cell_num_previous != 1 || num_populations/num_populations_previous != 1){
     cell_size = calculate_cell_size(board_size,cell_num)
-    //console.log(percent_pops)
-    A = populateBoard(percent_pops, cell_num)
-    //console.log(A)
-    //drawBoard(A,cell_size,num_populations)
+    A = populateBoard(cell_num, percent_pops)
   }
+  
+  drawBoard(A,cell_size,num_populations)
 
-  
-  
   cell_num_previous = cell_num
   num_populations_previous = num_populations
 
