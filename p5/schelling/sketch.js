@@ -18,6 +18,52 @@ function Cell(row,col,type){
   this.type = type
 }
 
+function Slider(min,max,initial,step){
+
+  this.min= min
+  this.max = max
+  this.value = initial
+  this.initial = initial
+  this.step = step
+  this.x_pos = 700
+  this.y_pos = 10
+  this.radius = 2
+  this.width = 100
+
+  this.render = function() {
+
+    stroke(200)
+    strokeWeight(4)
+    line(this.x_pos, this.y_pos, this.x_pos+this.width, this.y_pos)
+
+    fill(200)
+    stroke(0)
+    strokeWeight(1)
+    difference = this.max - this.min
+    percent = this.value/difference
+    this.circle_x = this.x_pos + percent*this.width
+    ellipse(this.circle_x, this.y_pos, 15, 15)
+
+    distance = sqrt((this.circle_x-mouseX)*(this.circle_x-mouseX)+(this.pos_y-mouseY)*(this.pos_y-mouseY))
+    
+
+    if ((distance < 15) && mouseIsPressed && mouseX > this.x_pos && mouseX < (this.x_pos + this.width)){
+      this.circle_x = mouseX
+      ellipse(circle_x, this.y_pos, 15 ,15)
+    }
+  }
+
+  this.update = function() {
+    difference = this.max - this.min
+    num_steps = difference/this.step+1
+    this.values = []
+    for (i = 0; i < num_steps; i++)
+      value = this.initial+i*step
+      this.values.push(value)
+
+  }
+}
+
 function createOneRow(row,cell_num,num_populations){
     single_row = []
     for (col = 0; col < cell_num; col++){
@@ -111,10 +157,13 @@ function setup() {
 
   // inputs
   percent_input = []
+  percent_slider = []
   reset_percent = []
 
   for (i = 0; i<11; i++){
     percent_input[i] = createInput(10)
+    percent_slider[i] = new Slider(0.0,100.0,10.0,1.0)
+    
   }
 
   // sliders
@@ -156,6 +205,10 @@ function draw(){
     percent_sum = percent_sum + float(percent_input[i].value())
     percent_pops[i] = float(percent_input[i].value())
 
+    percent_slider[i].x_pos = board_size+50
+    percent_slider[i].y_pos = 110+(i+1)*40
+    percent_slider[i].render()
+
     //reset_percent[i].position(board_size+110, 110+(i+1)*40);
       
     R = (i+1)*(255/num_populations)
@@ -187,5 +240,7 @@ function draw(){
   cell_num_previous = cell_num
   num_populations_previous = num_populations
   percent_pops_previous = percent_pops
+
+
 
 }
