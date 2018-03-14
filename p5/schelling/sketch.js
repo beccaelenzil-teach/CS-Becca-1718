@@ -6,22 +6,27 @@ var cell_num_previous = 20.0
 var num_populations = 4
 var num_populations_previous = 4
 var percent_pops = []
-var percent_empty = 10
+var percent_empty = 25
 var percent_empty_previous = 10
 var percent_pops_previous = []
 var run
 var reset
 var reset_percent
 var initialize_board = 1
-var RED = [255, 0, 0, 102, 255, 102, 204, 160, 204, 0 ]
-var GREEN = [0, 0, 143, 0, 255, 102, 0, 0, 102, 153]
-var BLUE = [0, 255, 0, 204, 0, 102, 102, 160, 0, 153]
+var RED = [255, 0, 0, 255,204, 102, 204, 160, 204, 0 ]
+var GREEN = [0, 0, 255, 255,153, 102, 0, 0, 102, 153]
+var BLUE = [0, 255, 0, 0,255,102, 102, 160, 0, 153]
 var threshold = 0.3
+var play = 0
+var percent_satisfied = 1
+var static = 0
+var threshold_pop = []
 
 function Cell(row,col,type){
   this.row = row
   this.col = col
   this.type = type
+  this.satisfied = 1
 }
 
 function Slider(min,max,initial,step){
@@ -189,28 +194,41 @@ function index_empties(A){
 }
 
 
-function next_generation(A, threshold){
+function next_generation(A, threshold_pop){
   height = A.length
   width = A[0].length
-  //newA = make_copy(A)
   newA = A
+  unsatisfied = []
   empties = index_empties(A)
   empties = shuffle(empties)
   i = 0
+  m = 0
+  n = 0
   for (row = 1; row < height-1; row++){
     for (col= 1; col < width-1; col++){
       similarity = count_neighbors(row,col,A)
-      if (A[row][col].type >= 0 && similarity < threshold && i < empties.length){
-        newA[empties[i][0]][empties[i][1]].type = A[row][col].type
-        newA[row][col].type = -1
-        i+=1
-      }
-      /*else{
-        newA[row][col].type = A[row][col].type
-      }*/
+      if (A[row][col].type >= 0 && similarity < threshold_pop[A[row][col].type]){// && i < empties.length){
+        A[row][col].satisfied = 0
+        unsatisfied.push([row,col])
+        m+=1
+      }  
+      else if (A[row][col].type >= 0 && similarity >= threshold_pop[A[row][col].type]){
+        A[row][col].satisfied = 1
+        n+=1
+      }    
     }
   }
+  unsatisfied = shuffle(unsatisfied)
+  for (k = 0; k < unsatisfied.length; k++){
+    if (i<empties.length){
+      newA[empties[i][0]][empties[i][1]].type = A[unsatisfied[i][0]][unsatisfied[i][1]].type
+      A[unsatisfied[i][0]][unsatisfied[i][1]].type = -1
+    }
+    i+=1
+  }
+  percent_satisfied = float(n)/float(m+n)
   return newA
+
 }
 
 function calculate_cell_size(board_size,cell_num){
@@ -222,6 +240,8 @@ function initialize(board_size, cell_num, percent_empty, percent_pops){
   A = []
   cell_size = calculate_cell_size(board_size,cell_num)
   A = populateBoard(cell_num, percent_empty, percent_pops)
+  A = next_generation(A,threshold_pop)
+  play = 0
 }
 
 function drawBoard(A,cell_size,num_populations){
@@ -234,7 +254,7 @@ function drawBoard(A,cell_size,num_populations){
         fill(255)
       }
       else if (A[row][col].type == -2){
-        fill(200)
+        fill(100)
       }
       else{
         R = RED[A[row][col].type]
@@ -247,9 +267,18 @@ function drawBoard(A,cell_size,num_populations){
   }
 }
 
+function hit_play(){
+  play = 1
+  return play
+}
+
+function hit_stop(){
+  play = 0
+  return play
+}
 
 function setup() { 
-  createCanvas(board_size+2*offset+300, board_size+2*offset+100);
+  createCanvas(board_size+2*offset+500, board_size+2*offset+100);
 
   percent_pops = [50,50]
 
@@ -257,69 +286,105 @@ function setup() {
   percent_input = []
   percent_slider = []
   reset_percent = []
+  thresholds = []
 
   for (i = 0; i<10; i++){
     percent_input[i] = createInput(10)
+    thresholds[i] = createSlider(0,1.0,0.3,0.1)
   }
 
   // sliders
-  slider_cell_num = createSlider(4.0, 75.0, 10.0, 1.0);
-  slider_cell_num.position(board_size+20, 40);
+
+  y_offset = 40
+
+  slider_cell_num = createSlider(4.0, 75.0, 20.0, 1.0);
+  slider_cell_num.position(board_size+20, 40+y_offset);
   slider_cell_num.style('width', '150px')
 
-  slider_num_pops = createSlider(2, 10, 2, 1);
-  slider_num_pops.position(board_size+20, 110);
+  slider_num_pops = createSlider(2, 10, 5, 1);
+  slider_num_pops.position(board_size+20, 110+y_offset);
   slider_num_pops.style('width', '150px')
 
-  slider_empty = createSlider(0, 100, 10, 1);
-  slider_empty.position(board_size+20, 180);
+  slider_empty = createSlider(0, 100, 25.0, 1);
+  slider_empty.position(board_size+20, 180+y_offset);
   slider_empty.style('width', '150px')
 
-  slider_thresh = createSlider(0, 1, 0.3, 0.01);
-  slider_thresh.position(board_size+20, 250);
-  slider_thresh.style('width', '150px')
+  //slider_thresh = createSlider(0, 1, 0.3, 0.01);
+  //slider_thresh.position(board_size+20, 250);
+  //slider_thresh.style('width', '150px')
 
 
   // button
   run = createButton('run');
-  run.position(board_size+250, 10);
+  run.position(board_size+20, 10);
+  run.style('width', '60px')
 
   reset = createButton('reset');
-  reset.position(board_size+250, 50);
+  reset.position(board_size+230, 10);
+  reset.style('width', '60px');
+
+  stop = createButton('stop');
+  stop.position(board_size+160, 10);
+  stop.style('width', '60px');
+
+  step = createButton('step');
+  step.position(board_size+90, 10);
+  step.style('width', '60px');
 
   initialize(board_size, cell_num, percent_empty, percent_pops)
+
 }
 
 function draw(){
   
   background(0);
 
-  threshold = slider_thresh.value()
+  run.mousePressed(hit_play)
+  stop.mousePressed(hit_stop)
+  reset.mousePressed(()=>initialize(board_size, cell_num, percent_empty, percent_pops))
+  step.mousePressed(()=>next_generation(A, threshold_pop))
+
+  //threshold = slider_thresh.value()
 
   drawBoard(A,cell_size,num_populations)
-  A = next_generation(A, threshold)
+
+  if (play == 1 && static == 0){
+    A = next_generation(A, threshold_pop)
+  }
+
+
 
   //population and num cells slider text
   fill(255)
-  text("Number of Populations", board_size+25, 95);
-  text("2", board_size+25, 110);
-  text("10", board_size+165, 110);
-  text(str(slider_num_pops.value()), board_size+85, 110);
+  text("Percent Satisfied: "+str(round(percent_satisfied*1000)/10)+"%",board_size+350,25)
 
-  text("Board Size (height/width", board_size+25, 25);
-  text("4", board_size+25, 40);
-  text("75", board_size+165, 40);
-  text(str(slider_cell_num.value()), board_size+85, 40);
+  y_offset = 40
 
-  text("Percent Empty", board_size+25, 160);
-  text("0", board_size+25, 175);
-  text("100", board_size+165, 175);
-  text(str(slider_empty.value()), board_size+85, 175);
+  text("Number of Populations", board_size+25, 95+y_offset);
+  text("2", board_size+25, 110+y_offset);
+  text("10", board_size+165, 110+y_offset);
+  text(str(slider_num_pops.value()), board_size+85, 110+y_offset);
 
+  text("Board Size", board_size+25, 25+y_offset);
+  text("4", board_size+25, 40+y_offset);
+  text("75", board_size+165, 40+y_offset);
+  text(str(slider_cell_num.value()), board_size+85, 40+y_offset);
+
+  text("Percent Empty", board_size+25, 160+y_offset);
+  text("0", board_size+25, 175+y_offset);
+  text("100", board_size+165, 175+y_offset);
+  text(str(slider_empty.value()), board_size+85, 175+y_offset);
+
+
+  text("Similarity Threshold", board_size+300, 260)
+
+  /*text("Similarity Threshold", board_size+300, 260);
   text("Similarity Threshold", board_size+25, 230);
   text("0", board_size+25, 245);
   text("1", board_size+165, 245);
-  text(str(slider_thresh.value()), board_size+85, 245);
+  text(str(slider_thresh.value()), board_size+85, 245);*/
+
+  
 
   num_populations = slider_num_pops.value()
   cell_num = slider_cell_num.value()
@@ -349,6 +414,11 @@ function draw(){
       percent_input[i].style('width', '100px')
     }
 
+    thresholds[i].position(board_size+300, y_pos+2+(i+1)*40);
+    thresholds[i].style('width', '100px')
+
+    threshold_pop[i] = thresholds[i].value()
+
     percent_pops[i] = float(percent_input[i].value())
 
     percent_input[i].defaultValue = 100/num_populations
@@ -361,6 +431,7 @@ function draw(){
     rect(board_size+20, y_pos+(i+1)*40,20,20)
     text(str(0), board_size+50, y_pos+(i+1)*40);
     text("Population "+str(i+1), board_size+180, y_pos+15+(i+1)*40)
+    text(str(threshold_pop[i]), board_size+420, y_pos+15+(i+1)*40)
 
     if (i==(num_populations-1) && ((100-percent_sum) > 0)){
       text(str(100-percent_sum), board_size+100, y_pos+(i+1)*40);
@@ -390,11 +461,18 @@ function draw(){
       percent_input[i].show()
   }
 
-  
+  for(i = num_populations; i<10; i++){
+      thresholds[i].hide()
+  }
+  for( i = 0; i<num_populations; i++){
+      thresholds[i].show()
+  }
 
   
+
   cell_num_previous = cell_num
   num_populations_previous = num_populations
   percent_empty_previous = percent_empty
+  percent_pops_previous = percent_pops
   percent_pops_previous = percent_pops
 }
