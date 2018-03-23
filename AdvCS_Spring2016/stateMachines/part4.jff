@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 6.4.--><structure>&#13;
+	<type>fa</type>&#13;
+	<automaton>&#13;
+		<note>&#13;
+			<text>part4.jff:   Create a FSM accepting strings whose third-to-last (third-from-right) bit is a 1.</text>&#13;
+			<x>6.0</x>&#13;
+			<y>9.0</y>&#13;
+		</note>&#13;
+		<note>&#13;
+			<text>This one is more difficult... see our notes from class.</text>&#13;
+			<x>6.0</x>&#13;
+			<y>29.0</y>&#13;
+		</note>&#13;
+	</automaton>&#13;
+</structure>

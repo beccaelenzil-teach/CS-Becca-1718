@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 6.4.--><structure>&#13;
+	<type>fa</type>&#13;
+	<automaton>&#13;
+		<note>&#13;
+			<text>part3.jff:   Create a FSM that accepts strings with any number of 1s...</text>&#13;
+			<x>8.0</x>&#13;
+			<y>11.0</y>&#13;
+		</note>&#13;
+		<note>&#13;
+			<text>... but the number of 0s must be a multiple of 2, of 3, or of both</text>&#13;
+			<x>8.0</x>&#13;
+			<y>30.0</y>&#13;
+		</note>&#13;
+	</automaton>&#13;
+</structure>
