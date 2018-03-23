@@ -131,15 +131,115 @@ class Date:
         else:
             return None
 
+    def diff(self,d2):
+        count = 0
+        date = d2.copy()
+        while self.isBefore(date):
+            date.yesterday()
+            count-=1
+        while self.isAfter(date):
+            date.tomorrow()
+            count+=1
+        return count
+
+    def dow(self):
+        dows = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        monday = Date(3,19,2018)
+        num_days = self.diff(monday)
+        remainder = num_days % 7
+        return dows[remainder]
+
+    def dow2(self, refDate):
+        dows = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        monday = refDate
+        num_days = self.diff(monday)
+        remainder = num_days % 7
+        return dows[remainder]
 
 
 
+def nycounter():
+    """Looking ahead to 100 years of New Year's celebrations"""
 
+    dowd = {}              # dowd == 'day of week dictionary'
+    dowd["Sunday"] = 0     # a 0 entry for Sunday
+    dowd["Monday"] = 0     # and so on
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+
+    # live for another 100 years
+    for year in range(2018, 2118):
+        d = Date(5, 25, year)   # get ny
+        print('Current date is', d)
+        s = d.dow()        # get day of week
+        dowd[s] += 1       # count it
+
+    print('totals are', dowd)
+
+    # we could return dowd here
+    # but we don't need to right now
+    # return dowd
+
+def birthdaycounter():
+    """Looking ahead to 100 years of New Year's celebrations"""
+
+    dowd = {}              # dowd == 'day of week dictionary'
+    dowd["Sunday"] = 0     # a 0 entry for Sunday
+    dowd["Monday"] = 0     # and so on
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+
+    # live for another 100 years
+    for year in range(2018, 2117):
+        d = Date(5, 25, year)   # get ny
+        s = d.dow() # get day of week
+        print('Current date is', d, ' and the day is', s)
+        dowd[s] += 1       # count it
+
+    print('totals are', dowd)
+
+    # we could return dowd here
+    # but we don't need to right now
+    # return dowd
+
+def daycounter():
+
+    dowd = {}              # dowd == 'day of week dictionary'
+    dowd["Sunday"] = 0     # a 0 entry for Sunday
+    dowd["Monday"] = 0     # and so on
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+
+    refDate = Date(3,19,2018)
+
+    for year in range(2018, 2418):
+        for month in range(1,13):
+            d = Date(month, 13, year)
+            s = d.dow2(refDate)
+            if s == "Monday":
+                refDate = d
+            dowd[s] += 1
+        print(year)
+
+    print('totals are', dowd)
+
+daycounter()
+
+'''
 ny = Date(1,1,2015)
 d2 = Date(1,1,2015)
 
 print(ny.isAfter(d2))
-'''
+
 d = Date(11, 12, 2014)
 d.addNDays(1278)
 print(" ")

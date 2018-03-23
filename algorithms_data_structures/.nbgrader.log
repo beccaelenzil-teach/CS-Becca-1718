@@ -17,3 +17,104 @@
 [NotebookApp | INFO] Saving file at /UNIT1_OBJECTS_CLASSES/U1_P1_Dates.ipynb
 [NotebookApp | INFO] Saving file at /UNIT1_OBJECTS_CLASSES/U1_P1_Dates.ipynb
 [NotebookApp | INFO] Saving file at /UNIT1_OBJECTS_CLASSES/U1_P1_Dates.ipynb
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Users/becca.elenzil/Documents/GitHub-teach/CS-Becca-1718/algorithms_data_structures
+[NotebookApp | INFO] 0 active kernels 
+[NotebookApp | INFO] The Jupyter Notebook is running at: http://localhost:8888/?token=27553679bea392297a9347850bef9bfd9ff6d37de1652d1a
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=27553679bea392297a9347850bef9bfd9ff6d37de1652d1a
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from ::1
+[NotebookApp | INFO] 302 GET /notebooks/random-babies.ipynb (::1) 6.87ms
+[NotebookApp | INFO] Creating new notebook in 
+[NotebookApp | INFO] Kernel started: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Untitled.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | WARNING] zmq message arrived on closed channel
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Untitled.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | WARNING] zmq message arrived on closed channel
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Untitled.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel interrupted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | WARNING] Replacing stale connection: 437d5754-6c94-45da-8913-70ec71b86cc3:025A0E56E8624A7DBB0A3DFC01328B7D
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel interrupted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel interrupted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel interrupted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Kernel interrupted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel interrupted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Saving file at /Robots.py.ipynb
+[NotebookApp | INFO] Creating new notebook in 
+[NotebookApp | INFO] Kernel started: b26e3726-f53c-48d9-9eb1-fab4ecd337e1
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel b26e3726-f53c-48d9-9eb1-fab4ecd337e1
+[NotebookApp | INFO] Saving file at /zombie_game.py.ipynb
+[NotebookApp | INFO] Saving file at /robot.py.ipynb
+[NotebookApp | INFO] Saving file at /robot.py.ipynb
+[NotebookApp | INFO] Saving file at /zombie_game.py.ipynb
+[NotebookApp | INFO] Saving file at /robot.py.ipynb
+[NotebookApp | INFO] Saving file at /robot.py.ipynb
+[NotebookApp | INFO] Kernel restarted: 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 437d5754-6c94-45da-8913-70ec71b86cc3
+[NotebookApp | INFO] Saving file at /robot.py.ipynb
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Users/becca.elenzil/Documents/GitHub-teach/CS-Becca-1718/algorithms_data_structures
+[NotebookApp | INFO] 0 active kernels 
+[NotebookApp | INFO] The Jupyter Notebook is running at: http://localhost:8891/?token=b0227d0c32808b0b9867b98c0f630bb4d37f871cfbca1d37
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8891/?token=b0227d0c32808b0b9867b98c0f630bb4d37f871cfbca1d37
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from ::1
+[NotebookApp | INFO] Kernel started: 31f8fd9a-316f-49a7-941d-fcd8089c58da
+[NotebookApp | WARNING] Timeout waiting for kernel_info reply from 31f8fd9a-316f-49a7-941d-fcd8089c58da
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 31f8fd9a-316f-49a7-941d-fcd8089c58da
+[NotebookApp | INFO] Kernel restarted: 31f8fd9a-316f-49a7-941d-fcd8089c58da
+[NotebookApp | INFO] Saving file at /robot.py.ipynb
+[NotebookApp | WARNING] zmq message arrived on closed channel
+[NotebookApp | WARNING] zmq message arrived on closed channel

@@ -45,7 +45,7 @@ class Rational:
         else:
             low = self.numerator
 
-        for factor in range(2,low+1):
+        for factor in range(1,low+1):
             if self.numerator % factor == 0 and self.denominator % factor == 0:
                 the_gcf = factor
 
