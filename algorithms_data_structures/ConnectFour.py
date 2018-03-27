@@ -30,6 +30,7 @@ class Board:
             s += '|'
             for col in range(0,W):
                 s += self.data[row][col] + '|'
+            s += ' '+str(row)
             s += '\n'
 
         s += (2*W+1) * '-'    # bottom of the board
@@ -50,6 +51,16 @@ class Board:
         while 0 <= row < H and moved == False:
             if self.data[row][col] == ' ':
                 self.data[row][col] = ox
+                moved = True
+            row -= 1
+
+    def delMove(self, col):
+        H = self.height
+        moved = False
+        row = H-1
+        while 0 <= row < H and moved == False:
+            if self.data[row][col] != ' ':
+                self.data[row][col] = ' '
                 moved = True
             row -= 1
 
@@ -81,7 +92,6 @@ class Board:
 
     def allowsMove(self, col):
         W = self.width
-        H = self.height
         if col < 0 or col >= W:
             return False
         elif self.data[0][col] == ' ':
@@ -173,10 +183,6 @@ class Board:
                 ox = 'X'
 
 
-
-
-#b = Board(7,6)
-#b.hostGame()
 
 
 
