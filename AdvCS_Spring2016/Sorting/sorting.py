@@ -137,7 +137,8 @@ def mergeSort(some_list):
     print "Merging ",some_list
 
 a = create_random_list(20)
-a = quickSort(a, 0, len(a)-1)
+bubbleSort(a)
+#a = quickSort(a, 0, len(a)-1)
 
 
 """

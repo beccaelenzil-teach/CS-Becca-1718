@@ -118,3 +118,46 @@
 [NotebookApp | INFO] Saving file at /robot.py.ipynb
 [NotebookApp | WARNING] zmq message arrived on closed channel
 [NotebookApp | WARNING] zmq message arrived on closed channel
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Users/becca.elenzil/Documents/GitHub-teach/CS-Becca-1718/algorithms_data_structures
+[NotebookApp | INFO] 0 active kernels 
+[NotebookApp | INFO] The Jupyter Notebook is running at: http://localhost:8888/?token=ba521777303dc7e4aa25297234eb586d1c9c318f3d7936f8
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=ba521777303dc7e4aa25297234eb586d1c9c318f3d7936f8
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from ::1
+[NotebookApp | INFO] Creating new notebook in 
+[NotebookApp | INFO] Kernel started: b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Kernel interrupted: b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Kernel interrupted: b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Kernel interrupted: b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Kernel interrupted: b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Kernel interrupted: b1258ddd-a2e5-4a6b-b47c-ebf8a8451875
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | INFO] Saving file at /sorting.ipynb
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Users/becca.elenzil/Documents/GitHub-teach/CS-Becca-1718/algorithms_data_structures
+[NotebookApp | INFO] 0 active kernels 
+[NotebookApp | INFO] The Jupyter Notebook is running at: http://localhost:8888/?token=734dcad994fd3db7eee979af4f3551db1b9fdee0fd10fcb5
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=734dcad994fd3db7eee979af4f3551db1b9fdee0fd10fcb5
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from ::1
+[NotebookApp | INFO] Kernel started: 9e88bf02-55e1-451f-8cd8-c6c3e034b688
+[NotebookApp | INFO] Adapting to protocol v5.1 for kernel 9e88bf02-55e1-451f-8cd8-c6c3e034b688
+[NotebookApp | INFO] Saving file at /sorting.ipynb
