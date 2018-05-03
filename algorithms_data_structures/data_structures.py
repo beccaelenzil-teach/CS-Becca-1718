@@ -107,6 +107,84 @@ def divideby2(number):
     return binary_string
 
 
-print(divideby2(233))
+#print(divideby2(233))
 
 
+
+
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def isEmpty(self):
+        return self.items == []
+
+    def enqueue(self, item):
+        self.items.insert(0,item)
+
+    def dequeue(self):
+        return self.items.pop()
+
+    def size(self):
+        return len(self.items)
+
+    def peek(self):
+        return self.items[-1]
+
+'''
+q  = Queue()
+q.enqueue(4)
+q.enqueue('dog')
+q.enqueue(True)
+print(q.size())
+
+q = Queue()
+q.enqueue('hello')
+q.enqueue('dog')
+q.enqueue(3)
+q.dequeue()
+print(q.dequeue())
+print(q.dequeue())
+'''
+
+def hotPotato(namelist, num):
+    q = Queue()
+    q.items = namelist
+
+    while q.size() > 1:
+        for n in range(num):
+            print(q.items)
+            name = q.dequeue()
+
+        q.enqueue(name)
+
+    return q.dequeue()
+
+print("The winner is Kent == ", hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
+
+
+class Printer():
+    def __init__(self, ppm):
+        self.pagerate = ppm
+        self.currentTask = None
+        self.timeRemaining = 0
+
+    def tick(self):
+        if self.currentTask != None:
+            self.timeRemaining = self.timeRemaining - 1
+            if self.timeRemaining <= 0:
+                self.currentTask = None
+
+    def busy(self):
+        if self.currentTask != None:
+            return True
+        else:
+            return False
+
+    def startNext(self,newtask):
+        self.currentTask = newtask
+        self.timeRemaining = newtask.getPages() * 60/self.pagerate
+
+#class Task()
+
+#class PrintQueue()

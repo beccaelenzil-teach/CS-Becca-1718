@@ -34,7 +34,7 @@ def hotPotato(nameList,num):
     return q.dequeue()
 
 
-print "The winner is Susan == ", hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7)
+print("The winner is Susan == ", hotPotato(["Bill","David","Susan","Jane","Kent","Brad"],7))
 
 class Printer:
     def __init__(self,ppm):
