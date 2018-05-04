@@ -155,13 +155,33 @@ def hotPotato(namelist, num):
         for n in range(num-1):
             name = q.dequeue()
             q.enqueue(name)
-            print(q.items)
+            #print(q.items)
 
         q.dequeue()
 
     return q.dequeue()
 
-print("The winner is Victoria == ", hotPotato(["Healey","Victoria","Hayden","Alex","Ana","Rumi"],7))
+def hotPotato2(namelist, num):
+    n = num - 1
+    while len(namelist) > 1:
+        a = 0
+        while a < num:
+            a += 1
+            n -= 1
+            if n < 0:
+                n = len(namelist) - 1
+
+        namelist = namelist[0:n] + namelist[n+1::]
+        print(n)
+        print(namelist)
+
+
+    return namelist[0]
+
+
+
+#print("The winner is Victoria == ", hotPotato(["Healey","Victoria","Hayden","Alex","Ana","Rumi"],7))
+print("The winner is Victoria == ", hotPotato2(["Healey","Victoria","Hayden","Alex","Ana", "Rumi"],7))
 
 
 class Printer():
