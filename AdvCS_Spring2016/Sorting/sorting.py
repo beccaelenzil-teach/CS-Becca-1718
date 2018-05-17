@@ -134,7 +134,7 @@ def mergeSort(some_list):
             j += 1
             k += 1
 
-    print "Merging ",some_list
+    print("Merging ",some_list)
 
 a = create_random_list(20)
 bubbleSort(a)
