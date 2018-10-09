@@ -1,6 +1,6 @@
 circle_list = []
 n = 500
-h = 700
+h = 544
 w = 1000
 m = 0
 
@@ -9,12 +9,16 @@ mult = 50000
 
 dt = 400
 
+var img
 
 
 function setup() {
   createCanvas(w,h)
   background(0)
   fill(random(0,256))
+  img = loadImage("mountain.jpeg"); 
+  image(img,0,0)
+  console.log(img)
   cursor_color = [random(0,256),random(0,256),random(0,256)]
   for(i=0; i<n; i++){
   	circ = new circle(random(0,w+1),random(0,h+1),random(9,12),[random(0,256),random(0,256),random(0,256)])//random([-4,-2,2,4]),random([-4,-2,2,4]))
@@ -25,7 +29,8 @@ function setup() {
 
 function draw() {
 
-  background(0,0,0,50)
+  //background(0,0,0,50)
+  image(img, 0, 0);
 
   if(mouseIsPressed) {
   	clear()
